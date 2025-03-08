@@ -1,1 +1,1 @@
-# story-project
+A simple javascript program with basic css styling showcasing a program which when a button is clicked with an eventlistener, it chooses random words out of array lists and makes a story from them. live link here https://sshz1234.github.io/story-project/storymaker/index.html 
