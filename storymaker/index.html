@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Assignment 1 | COMP1073 Client-Side JavaScript</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+	<h1>See-N-Say Storymaker</h1>
+	<p id="studentId"></p>
+	<section>
+		<!-- Section with all the buttons for the user to build their story -->
+		<h2>Create Your Story</h2>
+		<button id="noun1">Noun 1</button>
+		<p id="choosenNoun1"></p>
+		<button id="verb">Verb</button>
+		<p id="choosenVerb"></p>
+		<button id="adjective">Adjective</button>
+		<p id="choosenAdjective"></p>
+		<button id="noun2">Noun 2</button>
+		<p id="choosenNoun2"></p>
+		<button id="setting">Setting</button>
+		<p id="choosenSetting"></p>
+	</section>
+	<section>
+		<!-- Section with playback controls to see or hear the story -->
+		<h2>See Your Story</h2>
+		<button id="playback">Show Story</button>
+		<button id="random">Random Story</button>
+		<!-- Empty paragraph to display the story -->
+		<p id="story"></p>
+	</section>
+	<script src="js/storymaker.js">// Your existing code...
+
+		// New function to insert student ID/name
+		function insertStudentId() {
+			const studentIdParagraph = document.querySelector('#studentId');
+			studentIdParagraph.textContent = 'Your Student ID/Name'; // Replace with your actual ID/name
+		}
+		
+		// New functions for random phrase buttons
+		function randomNoun_on_click() {
+			const randomNoun = noun1Array[Math.floor(Math.random() * noun1Array.length)];
+			choosenNoun1Paragraph.textContent = `Random Noun: ${randomNoun}`;
+		}
+		
+		function randomVerb_on_click() {
+			const randomVerb = verbArray[Math.floor(Math.random() * verbArray.length)];
+			choosenVerbParagraph.textContent = `Random Verb: ${randomVerb}`;
+		}
+		
+		function randomAdjective_on_click() {
+			const randomAdjective = adjectiveArray[Math.floor(Math.random() * adjectiveArray.length)];
+			choosenAdjectiveParagraph.textContent = `Random Adjective: ${randomAdjective}`;
+		}
+		
+		function randomNoun2_on_click() {
+			const randomNoun2 = noun2Array[Math.floor(Math.random() * noun2Array.length)];
+			choosenNoun2Paragraph.textContent = `Random Noun 2: ${randomNoun2}`;
+		}
+		
+		function randomSetting_on_click() {
+			const randomSetting = settingArray[Math.floor(Math.random() * settingArray.length)];
+			choosenSettingParagraph.textContent = `Random Setting: ${randomSetting}`;
+		}
+		
+		// New function for the random story button
+		function randomStory_on_click() {
+			const randomStory = `Once upon a time, there was a ${noun1Array[Math.floor(Math.random() * noun1Array.length)]} who ${verbArray[Math.floor(Math.random() * verbArray.length)]} in a ${adjectiveArray[Math.floor(Math.random() * adjectiveArray.length)]} way. The ${noun2Array[Math.floor(Math.random() * noun2Array.length)]} lived near a ${settingArray[Math.floor(Math.random() * settingArray.length)]}.`;
+			storyParagraph.textContent = randomStory;
+		}
+		
+		// Add event listeners for the new buttons
+		document.querySelector('#randomNoun').addEventListener('click', randomNoun_on_click);
+		document.querySelector('#randomVerb').addEventListener('click', randomVerb_on_click);
+		document.querySelector('#randomAdjective').addEventListener('click', randomAdjective_on_click);
+		document.querySelector('#randomNoun2').addEventListener('click', randomNoun2_on_click);
+		document.querySelector('#randomSetting').addEventListener('click', randomSetting_on_click);
+		
+		document.querySelector('#randomStory').addEventListener('click', randomStory_on_click);
+		document.querySelector('#studentId').addEventListener('click', insertStudentId);
+		</script>
+</body>
+
+</html>
